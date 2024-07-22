@@ -1,0 +1,20 @@
+<div class="overflow-hidden w-screen h-screen relative">
+  <div class="login-moving-background absolute top-0 left-0 bg-gray"></div>
+</div>
+
+<div class="flex flex-col items-center justify-center absolute top-0 left-0 w-full h-full">
+  <div class="login-window w-96 px-6 py-8 shadow-xl bg-white">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+  
+      <div class="field my-3">
+        <%= f.label :email, "Email Address" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Your email address", class: "block w-full my-2" %>
+      </div>
+  
+      <div class="actions my-3">
+        <%= f.submit "Send a password reissue email", class: "block my-3 w-full h-20 bg-neutral-500 text-white transition-all duration-300 hover:bg-amber-500 hover:cursor-pointer" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="overflow-hidden w-screen h-screen relative">
+  <div class="login-moving-background absolute top-0 left-0 bg-gray"></div>
+</div>
+
+<div class="flex flex-col items-center justify-center absolute top-0 left-0 w-full h-full">
+  <div class="login-window w-96 px-6 py-10 shadow-xl bg-white">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+  
+      <div class="field my-3">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block w-full my-2" %>
+      </div>
+  
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+  
+      <div class="field my-3">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "block w-full my-2" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+  
+      <div class="field my-3">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "block w-full my-2" %>
+      </div>
+  
+      <div class="field my-3">
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "block w-full my-2" %>
+      </div>
+  
+      <div class="actions">
+        <%= f.submit "Update", class: "block my-3 w-full h-20 bg-neutral-500 text-white transition-all duration-300 hover:bg-amber-500 hover:cursor-pointer" %>
+      </div>
+
+      <%= link_to :back do %>
+        <div class="flex">
+          <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="20px" height="20px" viewBox="0 0 299.021 299.021"
+            xml:space="preserve">
+            <g>
+              <g>
+                <path d="M292.866,254.432c-2.288,0-4.443-1.285-5.5-3.399c-0.354-0.684-28.541-52.949-146.169-54.727v51.977
+                  c0,2.342-1.333,4.48-3.432,5.513c-2.096,1.033-4.594,0.793-6.461-0.63L2.417,154.392C0.898,153.227,0,151.425,0,149.516
+                  c0-1.919,0.898-3.72,2.417-4.888l128.893-98.77c1.87-1.426,4.365-1.667,6.461-0.639c2.099,1.026,3.432,3.173,3.432,5.509v54.776
+                  c3.111-0.198,7.164-0.37,11.947-0.37c43.861,0,145.871,13.952,145.871,143.136c0,2.858-1.964,5.344-4.75,5.993
+                  C293.802,254.384,293.34,254.432,292.866,254.432z"/>
+              </g>
+            </g>
+          </svg>
+          <span class="ml-2">Back</span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

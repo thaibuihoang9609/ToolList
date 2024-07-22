@@ -67,3 +67,7 @@ group :test do
 end
 
 gem "jsbundling-rails", "~> 1.3"
+
+gem "devise", "~> 4.9"
+
+gem "tailwindcss-rails", "~> 2.6"
